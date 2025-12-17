@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - SAMO ZDRAVO</title>
+    <meta name="description" content="Kontaktirajte nas - SAMO ZDRAVO tim je tu da odgovori na vaša pitanja">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact-split.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="logo-image">
+                </a>
+            </div>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-menu-link">Home</a>
+            <a href="about.html" class="mobile-menu-link">About</a>
+            <a href="contact.html" class="mobile-menu-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-split-section">
+            <div class="contact-split-container">
+                <div class="contact-info-side">
+                    <div class="contact-info-content">
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <h3>Adresa</h3>
+                            <p>Bulevar Kralja Aleksandra 123<br>11000 Beograd, Srbija</p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <h3>Pozovite Nas</h3>
+                            <p><a href="tel:+381111234567">+381 11 123 4567</a></p>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📧</div>
+                            <h3>Kontakt Podrška</h3>
+                            <p><a href="mailto:info@samozdravо.rs">info@samozdravо.rs</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-side">
+                    <div class="contact-form-content">
+                        <h2>Pošaljite Nam Poruku</h2>
+                        
+                        <form class="contact-form-split" id="contact-form">
+                            <div class="form-label-group">
+                                <label class="form-label">IME I PREZIME *</label>
+                                <div class="form-row-split">
+                                    <div class="form-group">
+                                        <input type="text" id="firstName" name="firstName" placeholder="Ime" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="lastName" name="lastName" placeholder="Prezime" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-label-group">
+                                <label class="form-label" for="email">EMAIL *</label>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" placeholder="npr. primer@email.com" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-label-group">
+                                <label class="form-label" for="phone">BROJ TELEFONA</label>
+                                <div class="form-group">
+                                    <input type="tel" id="phone" name="phone" placeholder="npr. +381 11 000 0000">
+                                </div>
+                            </div>
+                            
+                            <div class="form-label-group">
+                                <label class="form-label" for="message">PORUKA *</label>
+                                <div class="form-group">
+                                    <textarea id="message" name="message" rows="6" placeholder="Napišite vašu poruku" required></textarea>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit-split">POŠALJI PORUKU</button>
+                        </form>
+                        <div class="form-message" id="form-message"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="footer-logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O Nama</h3>
+                    <p>SAMO ZDRAVO donosi prirodne smoothie sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: info@samozdravо.rs</p>
+                    <p>Tel: +381 11 123 4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAMO ZDRAVO. Sva prava zadržana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
