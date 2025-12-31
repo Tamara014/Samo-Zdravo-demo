@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         flavorObserver.observe(section);
     });
     
-    // FAQ Accordion Functionality
     const faqItems = document.querySelectorAll('.faq-item');
     
     faqItems.forEach(item => {
@@ -114,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (question) {
             question.addEventListener('click', () => {
-                // Toggle current item
                 item.classList.toggle('active');
             });
         }

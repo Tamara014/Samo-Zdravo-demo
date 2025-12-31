@@ -294,7 +294,7 @@ main {
     width: 100%;
 }
 
-/* Mobile: show static image, hide rotation video */
+
 .flavor-image-static {
     display: block;
     max-width: 500px;
@@ -311,7 +311,7 @@ main {
     display: none;
 }
 
-/* Horizontal video for mobile */
+
 .flavor-video-horizontal-wrapper {
     display: block;
     width: 100%;
@@ -361,7 +361,7 @@ video {
     margin: 0 auto;
 }
 
-/* Flavor-specific backgrounds */
+
 .flavor-imuno {
     background-color: var(--color-imuno);
 }
@@ -455,9 +455,9 @@ video {
     font-size: var(--font-size-small);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
 
-/* Tablets and up */
+
+
 @media (min-width: 768px) {
     :root {
         --font-size-h1: 3rem;
@@ -492,7 +492,7 @@ video {
         margin: 0;
     }
     
-    /* Alternate layout for flavor sections */
+    
     .flavor-section:nth-child(even) .flavor-container {
         flex-direction: row-reverse;
     }
@@ -551,7 +551,7 @@ video {
     }
 }
 
-/* Desktop */
+
 @media (min-width: 1024px) {
     .hamburger {
         display: none;
@@ -578,7 +578,7 @@ video {
         padding: var(--spacing-lg) var(--spacing-lg);
     }
     
-    /* Desktop: hide static image and horizontal video, show rotation video */
+    
     .flavor-image-static {
         display: none;
     }
@@ -690,7 +690,7 @@ video {
     }
 }
 
-/* High Contrast Mode Support */
+
 @media (prefers-contrast: high) {
     .nav-link,
     .mobile-menu-link {
@@ -702,7 +702,7 @@ video {
     }
 }
 
-/* Reduced Motion Support */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -745,7 +745,7 @@ video {
     margin: 0 auto;
 }
 
-/* ===== PAGE HERO SECTION ===== */
+
 .hero-minimal {
     background-color: var(--color-bg-light);
     padding: calc(var(--spacing-xl) + var(--header-height)) var(--spacing-md) var(--spacing-xl);
@@ -870,7 +870,7 @@ video {
     font-size: 1.2rem;
 }
 
-/* ===== CONTACT PAGE ===== */
+
 .contact-intro {
     text-align: center;
     margin-bottom: var(--spacing-xl);
@@ -941,7 +941,7 @@ video {
     margin-top: var(--spacing-md);
 }
 
-/* ===== LOCATIONS SECTION ===== */
+
 .locations-section {
     background-color: var(--color-bg-white);
     padding: var(--spacing-xl);
@@ -1235,7 +1235,7 @@ video {
     color: var(--color-imuno);
 }
 
-/* Blog Styles */
+
 .blog-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1301,7 +1301,7 @@ video {
     }
 }
 
-/* FAQ Styles */
+
 .faq-item {
     background-color: var(--color-bg-white);
     padding: var(--spacing-md);
@@ -1349,9 +1349,9 @@ video {
     }
 }
 
-/* ===== ENHANCED STYLES FOR CONTENT PAGES ===== */
 
-/* Hero Image Enhancements */
+
+
 .hero {
     position: relative;
     overflow: hidden;
@@ -1377,7 +1377,7 @@ video {
     transform: scale(1.02);
 }
 
-/* Content Section Enhancements */
+
 .content-section {
     background: linear-gradient(to bottom, var(--color-bg-light) 0%, #c5c5c5 100%);
 }
@@ -1450,7 +1450,7 @@ video {
     border-radius: 3px;
 }
 
-/* Value Grid Enhancements */
+
 .values-grid {
     gap: var(--spacing-lg);
 }
@@ -1497,7 +1497,7 @@ video {
     background-clip: text;
 }
 
-/* Feature List Enhancements */
+
 .feature-list li {
     transition: all 0.3s ease;
     border-left: 3px solid transparent;
@@ -1521,7 +1521,7 @@ video {
     color: white;
 }
 
-/* Blog Post Enhancements */
+
 .blog-post {
     background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -1588,7 +1588,7 @@ video {
     color: white;
 }
 
-/* FAQ Page Hero - Gray Background */
+
 .hero-minimal,
 .content-section {
     background-color: #adadad;
@@ -1598,7 +1598,7 @@ video {
     background-color: white;
 }
 
-/* FAQ Enhancements - Accordion Style */
+
 .faq-item {
     background: white;
     border: 1px solid #e0e0e0;
@@ -1650,7 +1650,7 @@ video {
     color: var(--color-imuno);
 }
 
-/* FAQ Answer - Hidden by default */
+
 .faq-answer {
     display: none;
     padding: 0 1.5rem 1.5rem 1.5rem;
@@ -1712,7 +1712,7 @@ video {
     color: var(--color-focus);
 }
 
-/* FAQ Header Section Enhancement */
+
 .content-block h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -1726,7 +1726,7 @@ video {
     margin: 0 auto;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 767px) {
     .faq-item:hover {
         transform: translateX(8px) translateY(-2px);
@@ -1743,7 +1743,7 @@ video {
     }
 }
 
-/* Animation on Scroll */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1791,7 +1791,7 @@ video {
 .faq-item:nth-child(8) { animation-delay: 0.4s; }
 .faq-item:nth-child(9) { animation-delay: 0.45s; }
 
-/* Responsive adjustments */
+
 @media (max-width: 767px) {
     .content-block:hover {
         transform: translateY(-3px);

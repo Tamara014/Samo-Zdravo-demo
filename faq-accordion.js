@@ -1,4 +1,3 @@
-// FAQ Accordion - Simple Version
 console.log('FAQ Script loaded!');
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,14 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Toggle active class
                 const wasActive = item.classList.contains('active');
                 item.classList.toggle('active');
                 
                 console.log('Item is now', wasActive ? 'closed' : 'open');
             });
             
-            // Make it clear it's clickable
             question.style.cursor = 'pointer';
         }
     });

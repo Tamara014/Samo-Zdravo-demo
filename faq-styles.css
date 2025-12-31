@@ -1,12 +1,12 @@
-/* ===== FAQ PAGE SPECIFIC STYLES ===== */
 
-/* Gray Background for FAQ Page */
+
+
 .hero-minimal,
 .content-section {
     background-color: #adadad !important;
 }
 
-/* White Header Block - No Box */
+
 .content-block {
     background-color: transparent !important;
     border-radius: 0;
@@ -33,7 +33,7 @@
     text-align: left;
 }
 
-/* FAQ Item - White Card */
+
 .faq-item {
     background: white !important;
     border: 1px solid #e0e0e0;
@@ -49,7 +49,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* FAQ Question - Clickable Header */
+
 .faq-item h2 {
     font-size: 1rem;
     font-weight: 600;
@@ -74,7 +74,7 @@
     display: none !important;
 }
 
-/* Arrow Icon */
+
 .faq-item h2::after {
     content: '▼' !important;
     display: block !important;
@@ -96,7 +96,7 @@
     color: #4C1313;
 }
 
-/* FAQ Answer - Hidden by Default */
+
 .faq-answer {
     display: none;
     padding: 0 1.25rem 1.25rem 1.25rem;
@@ -118,7 +118,7 @@
     }
 }
 
-/* FAQ Answer Content */
+
 .faq-answer p {
     font-size: 0.95rem;
     line-height: 1.7;
@@ -130,7 +130,7 @@
     margin-bottom: 0;
 }
 
-/* Feature List in FAQ */
+
 .faq-answer ul.feature-list {
     background: rgba(173, 173, 173, 0.05);
     padding: 1rem;
@@ -162,7 +162,7 @@
     background: rgba(76, 19, 19, 0.05);
 }
 
-/* FAQ Links */
+
 .faq-answer a {
     color: #4C1313;
     font-weight: 600;
@@ -174,7 +174,7 @@
     color: #c9ac43;
 }
 
-/* Remove any conflicting animations */
+
 .faq-item {
     animation: none !important;
 }
