@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Često Postavljena Pitanja - SAMO ZDRAVO</title>
+    <meta name="description" content="Odgovori na najčešća pitanja o SAMO ZDRAVO smoothie napicima">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <style>
+        /* FAQ Specific Styles - Inline */
+        .content-section {
+            background-color: #adadad !important;
+        }
+        
+        .content-block {
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 2rem 0 !important;
+        }
+        
+        .content-block h1 {
+            color: #292728;
+            background: none !important;
+            -webkit-text-fill-color: currentColor !important;
+        }
+        
+        .content-block p {
+            color: #5a5a5a;
+        }
+        
+        .faq-item {
+            background: white !important;
+            border: 1px solid #e0e0e0 !important;
+            border-radius: 8px !important;
+            margin-bottom: 0.75rem !important;
+            overflow: hidden !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+            animation: none !important;
+        }
+        
+        .faq-item:hover {
+            border-color: #c9ac43 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        }
+        
+        .faq-item h2 {
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            color: #292728 !important;
+            margin: 0 !important;
+            padding: 1.25rem !important;
+            padding-right: 3rem !important;
+            cursor: pointer !important;
+            user-select: none !important;
+            position: relative !important;
+            background: none !important;
+            -webkit-text-fill-color: currentColor !important;
+            border: none !important;
+        }
+        
+        .faq-item h2::before {
+            display: none !important;
+        }
+        
+        .faq-item h2::after {
+            content: '▼' !important;
+            display: block !important;
+            position: absolute !important;
+            right: 1.25rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            font-size: 0.75rem !important;
+            color: #5a5a5a !important;
+            transition: transform 0.3s ease, color 0.3s ease !important;
+        }
+        
+        .faq-item.active h2::after {
+            transform: translateY(-50%) rotate(180deg) !important;
+            color: #4C1313 !important;
+        }
+        
+        .faq-item:hover h2 {
+            color: #4C1313 !important;
+        }
+        
+        .faq-answer {
+            display: none !important;
+            padding: 0 1.25rem 1.25rem 1.25rem !important;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block !important;
+        }
+        
+        .faq-answer p {
+            font-size: 0.95rem !important;
+            line-height: 1.7 !important;
+            color: #5a5a5a !important;
+            margin-bottom: 0.75rem !important;
+        }
+        
+        .faq-answer ul.feature-list {
+            background: rgba(173, 173, 173, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.75rem 0;
+        }
+        
+        .faq-answer ul.feature-list li {
+            background: transparent;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .faq-answer a {
+            color: #4C1313;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="logo-image">
+                </a>
+            </div>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Početna</a>
+                <a href="about.html" class="nav-link">O Nama</a>
+                <a href="nutritivni-program.html" class="nav-link">Nutritivni Program</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-menu-link">Početna</a>
+            <a href="about.html" class="mobile-menu-link">O Nama</a>
+            <a href="nutritivni-program.html" class="mobile-menu-link">Nutritivni Program</a>
+            <a href="faq.html" class="mobile-menu-link">FAQ</a>
+            <a href="blog.html" class="mobile-menu-link">Blog</a>
+            <a href="contact.html" class="mobile-menu-link">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <img src="assets/images/FAMILY02.png" alt="SAMO ZDRAVO - FAQ" class="hero-image">
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="content-container">
+                <div class="content-block">
+                    <h1>Često Postavljena Pitanja (FAQ)</h1>
+                    <p>
+                        Pronađite odgovore na najčešća pitanja o našim prirodnim smoothie napicima, sastojcima, skladištenju i korišćenju.
+                    </p>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Da li su vaši sokovi prirodni i bez aditiva?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Da, naši smoothie-ji su 100% prirodni, bez veštačkih boja, aroma, konzervezanata i dodate vode. Pravimo ih isključivo od svežeg voća i povrća, uz prirodan dodatak meda (gde je primenjivo), kako bismo očuvali svu hranljivu vrednost i prirodan ukus.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Kako skladištiti smoothie-je?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Naši proizvodi su zamrznuti i pakovanje u specijalnim PET bocama zapremine 500 ml, što osigurava svežinu i očuvanost nutrijenata. Pre konzumacije, potrebno je prirodno odmrznuti proizvod u frižideru nekoliko sati ili preko noći. Nakon što se odmrzne, smoothie treba da se drži u frižideru i konzumira u roku od 24–48 sati radi očuvanja svežine i najkvalitetnijeg ukusa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Kako se koristi smoothie?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Nakon što prirodno odmnrznete smoothie u frižideru, protresite bocu pre upotrebe i uživajte u njoj hladnoj. Možete je koristiti kao samostan napitak, doručak, užinu ili dodatak obroku. Smoothie-ji su pogodni za svakodnevnu upotrebu i doprinose očuvanju energije, hidrataciji i vitalnosti.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Koje sastojke koristimo i zašto?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Biramo sastojke visokog kvaliteta, bogati vitaminima, mineralima i antioksidansima. U zavisnosti od smoothie-ja, koristimo:
+                        </p>
+                        <ul class="feature-list">
+                            <li>cveklu, jabuku, šargarepu (vitamini i minerali)</li>
+                            <li>limun, đumbir, kurkumu (vitamin C, energija, antioksidansi)</li>
+                            <li>borovnicu i malinu (prirodni antioksidansi)</li>
+                            <li>pomorandžu, cimet, divlju nanu (opuštanje i balans)</li>
+                            <li>prirodan med (za slatkoću i dodatnu hranu)</li>
+                        </ul>
+                        <p>
+                            Svaki sastojak je pažljivo odabran zbog nutritivnih benefita koje nudi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Da li su smoothie-ji pogodni za decu?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Da, naši smoothie-ji su potpuno prirodni i pogodni za svu dob. Međutim, za vrlo malu decu (ispod 3 godine), preporučujemo konsultaciju sa lekarom ili nutricionistom kako bi se utvrdila količina i prilagodila ishrana prema individualnim potrebama deteta.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Da li smoothie može zameniti obrok?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Naši smoothie-ji pružaju odličan izvor vitamina, mineralа i tečnosti, ali ne zamenjuju kompletan obrok. Mogu biti deo uravnotežene ishrane ili dodatak raznovrsnim obrocima. Za konkretne ishrane ili savete, preporučujemo konsultaciju sa nutricionistom.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Koliko dugo traje rok trajanja?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            U zamrznutom stanju, smoothie-ji mogu biti sačuvani mesecima, ali preporučujemo da se konzumiraju u roku od nekoliko meseci kako bi očuvali maksimalnu svežinu i ukus. Nakon odmrzavanja, proizvod treba potrošiti u roku od 24-48 sati.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Kako mogu poručiti?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Naručite putem naše <a href="contact.html">kontakt forme</a> ili nas pozovite direktno. Ponuđemo vam različite pakete i kombinacije smoothie-ja, prilagođene vašim potrebama. Dostava je brza i diskretna, a svaki proizvod stigati će zamrznut, spreman za skladištenje.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 onclick="this.parentElement.classList.toggle('active')">Da li imate personalizovane nutritivne programe?</h2>
+                    <div class="faq-answer">
+                        <p>
+                            Da! Naš osnivač, Mladen Dakić, specijalizovani je nutricionista-dijetetičar sa dugogodišnjim iskustvom u radu sa različitim kategorijama pacijenata. Nudimo individualne nutritivne konsultacije i programe prilagođene vašim zdravstvenim ciljevima, životnom stilu i potrebama. Saznajte više na stranici <a href="nutritivni-program.html">Nutritivni Program</a> ili nas <a href="contact.html">kontaktirajte</a> za konsultacije.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="footer-logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O Nama</h3>
+                    <p>SAMO ZDRAVO donosi prirodne smoothie sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: <a href="mailto:infosamozdravo@gmail.com" style="color: inherit; text-decoration: none;">infosamozdravo@gmail.com</a></p>
+                    <p>Za sva pitanja i porudžbine kontaktirajte nas</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://www.instagram.com/samozdravo.rs/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+                            </svg>
+                            @samozdravo.rs
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAMO ZDRAVO. Sva prava zadržana. | Dizajn i razvoj: <a href="https://tamara014.github.io/Tamara-Portfolio/" target="_blank" rel="noopener noreferrer" style="color: var(--color-focus); text-decoration: none;">Tamara Jakovljevic</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion - Working Version
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.faq-item h2').forEach(function(h2) {
+                h2.addEventListener('click', function() {
+                    this.parentElement.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

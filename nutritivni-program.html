@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutritivni Program - SAMO ZDRAVO</title>
+    <meta name="description" content="Otkrijte naš nutritivni program - individualizovani planovi ishrane sa prirodnim smoothie sokovima">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hero Section */
+        .page-hero {
+            background: #f5f5f5;
+            padding: calc(var(--header-height) + 3rem) 2rem 3rem 2rem;
+            text-align: center;
+        }
+        
+        .page-hero h1 {
+            font-size: 3rem;
+            color: #4C1313;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            color: #4C1313;
+        }
+        
+        /* About Section */
+        .about-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 2rem 2rem;
+        }
+        
+        .about-label {
+            color: #4C1313;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .about-title {
+            font-size: 2.8rem;
+            color: #4C1313;
+            margin-bottom: 3rem;
+            line-height: 1.3;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .about-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+        
+        .about-column h3 {
+            font-size: 1.4rem;
+            color: #4C1313;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .about-column p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        
+        .about-button-center {
+            text-align: center;
+        }
+        
+        .about-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #4C1313, #91202F);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 19, 19, 0.4);
+        }
+        
+        .about-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 19, 19, 0.5);
+        }
+        
+        .bottle-animation {
+            margin-top: -112px;
+            margin-bottom: -128px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .bottle-animation video {
+            max-width: 500px;
+            height: auto;
+            display: inline-block;
+        }
+        
+        /* Video Section */
+        .video-section {
+            background: white;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .video-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 5rem 2rem;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .program-card {
+            min-width: 350px;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .program-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .program-card h3 {
+            font-size: 1.4rem;
+            color: #4C1313;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .program-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        
+        /* Info Boxes */
+        .info-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .info-box {
+            background: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4C1313, #91202F);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .info-box h3 {
+            font-size: 1.3rem;
+            color: #4C1313;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .info-box p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Nutri Facts */
+        .nutri-section {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        
+        .nutri-section h2 {
+            font-size: 2.5rem;
+            color: #4C1313;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .nutri-section > p {
+            text-align: center;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1rem;
+        }
+        
+        .fact-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .fact-item h3 {
+            color: #4C1313;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .fact-item p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .fact-item ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .fact-item li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .fact-item strong {
+            color: #4C1313;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-columns {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-title {
+                font-size: 2rem;
+            }
+            
+            .bottle-animation {
+                display: none;
+            }
+            
+            .bottle-animation video {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="logo-image">
+                </a>
+            </div>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Početna</a>
+                <a href="about.html" class="nav-link">O Nama</a>
+                <a href="nutritivni-program.html" class="nav-link active">Nutritivni Program</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-menu-link">Početna</a>
+            <a href="about.html" class="mobile-menu-link">O Nama</a>
+            <a href="nutritivni-program.html" class="mobile-menu-link">Nutritivni Program</a>
+            <a href="faq.html" class="mobile-menu-link">FAQ</a>
+            <a href="blog.html" class="mobile-menu-link">Blog</a>
+            <a href="contact.html" class="mobile-menu-link">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <h1>Nutritivni Program</h1>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <h2 class="about-title">Naša Kompanija Je Posvećena<br>Sticanju Vašeg Poverenja Pružanjem Stručnosti</h2>
+            
+            <div class="about-columns">
+                <div class="about-column">
+                    <h3>#Potpuna Usluga Nutritivnih Programa</h3>
+                    <p>
+                        Nudimo kompletan pristup ishrani kroz naše stručno osmišljene programe. Svaki plan je prilagođen 
+                        vašim individualnim potrebama i ciljevima. Od konsultacija do praćenja napretka, tu smo za vas 
+                        u svakom koraku. Naši prirodni smoothie sokovi su deo uravnoteženog pristupa zdravlju, 
+                        kombinujući najbolje od prirode sa nutritivnom naukom.
+                    </p>
+                </div>
+                
+                <div class="about-column">
+                    <h3>#Pouzdan Nutritivni Centar U Srbiji</h3>
+                    <p>
+                        Naša misija je da vam pružimo najviši kvalitet nutritivnih usluga. Sa godinama iskustva i 
+                        stručnim timom, postali smo pouzdan partner za sve koji žele da unaprede svoje zdravlje. 
+                        Koristimo samo prirodne sastojke i dokazane metode, bez veštačkih aditiva. 
+                        Vaše poverenje je naša najveća nagrada.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="about-button-center">
+                <a href="contact.html" class="about-button">Saznaj Više O Nama</a>
+            </div>
+            
+            <div class="bottle-animation">
+                <video autoplay loop muted playsinline>
+                    <source src="assets/videos/Imuno Horizontal_1.webm" type="video/webm">
+                </video>
+            </div>
+        </section>
+
+        <!-- Programs Grid Section -->
+        <section class="video-section">
+            <div class="video-wrapper">
+                <div class="programs-grid">
+                    <div class="program-card">
+                        <div class="program-icon">🎯</div>
+                        <h3>Program za Imunitet</h3>
+                        <p>Fokusiran na jačanje imuniteta kroz visok unos vitamina C, cinka i antioksidanasa. Kombinuje Imuno smoothie sa prirodnim izvorima hranljivih materija.</p>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-icon">⚡</div>
+                        <h3>Program za Energiju</h3>
+                        <p>Dizajniran za povećanje energije i mentalnog fokusa. Uključuje Focus smoothie i namirnice koje podržavaju stabilne nivoe energije tokom dana.</p>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-icon">🧘</div>
+                        <h3>Program za Opuštanje</h3>
+                        <p>Pomoć u smanjenju stresa i poboljšanju kvaliteta sna. Relax smoothie u kombinaciji sa ishranom koja podržava mentalno zdravlje.</p>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-icon">💪</div>
+                        <h3>Program za Vitalnost</h3>
+                        <p>Sveobuhvatan program koji kombinuje sve naše smoothie sokove u cilju postizanja optimalne vitalnosti i blagostanja.</p>
+                    </div>
+                    
+                    <div class="program-card">
+                        <div class="program-icon">🍃</div>
+                        <h3>Detox Program</h3>
+                        <p>Prirodno čišćenje organizma kroz kombinaciju zelenih smoothie-ja i namirnica bogatih vlaknima i antioksidansima.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Boxes -->
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-box">
+                    <div class="info-icon">📋</div>
+                    <h3>Konsultacija</h3>
+                    <p>Popunite upitnik o vašim zdravstvenim ciljevima i navikama. Naš tim stručnjaka analizira vaše potrebe.</p>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-icon">🎯</div>
+                    <h3>Personalizovani Plan</h3>
+                    <p>Dobijate 30-dnevni plan ishrane sa preporukama koje smoothie sokove konzumirati.</p>
+                </div>
+                
+                <div class="info-box">
+                    <div class="info-icon">📊</div>
+                    <h3>Praćenje Napretka</h3>
+                    <p>Pratite svoj napredak uz našu kontinuiranu podršku i prilagođavajte program.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nutri Facts -->
+        <section class="nutri-section">
+            <h2>Nutri Facts</h2>
+            <p>Otkrijte osnovne principe zdrave ishrane i kako prirodni sastojci u našim smoothie-jima doprinose vašem zdravlju.</p>
+            
+            <div class="fact-item">
+                <h3>1. Hidratacija – prvi korak ka zdravlju</h3>
+                <p>
+                    Voda je osnova za sve telesne funkcije – od transporta nutrijenata do probave i održavanja energije. 
+                    Čak i blaga dehidracija može izazvati umor i pad koncentracije. Hladno ceđeni napici poput naših 
+                    smoothie-ja odličan su način da povećate unos tečnosti i istovremeno unesete vitamine i antioksidanse.
+                </p>
+                <p><strong>💡 Savet:</strong> Počni dan čašom vode i pij najmanje 1,5–2 l dnevno, nadoknađujući tečnost i prirodnim napicima.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>2. Vitamini – esencijalni mikronutrijenti</h3>
+                <p>Vitamini su mikronutrijenti koje telo ne može samo da proizvede, a neophodni su za:</p>
+                <ul>
+                    <li>jačanje imunog sistema</li>
+                    <li>proizvodnju energije</li>
+                    <li>zdravlje kože, kostiju i mišića</li>
+                </ul>
+                <p>Primera radi:</p>
+                <ul>
+                    <li>Vitamin C jača otpornost organizma i štiti ćelije</li>
+                    <li>B vitamini podržavaju metabolizam i funkciju nervnog sistema</li>
+                </ul>
+                <p><strong>💡 Savet:</strong> Uvrsti raznovrsno voće i povrće u ishranu svakodnevno, kako bi telo dobilo prirodan izvor vitamina.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>3. Voće i povrće – gradivni blokovi zdravlja</h3>
+                <p>Voće i povrće bogato je vitaminima, mineralima i vlaknima. Redovan unos:</p>
+                <ul>
+                    <li>pomaže probavi i održavanju energije</li>
+                    <li>doprinosi osećaju sitosti i vitalnosti</li>
+                    <li>smanjuje rizik od hroničnih bolesti</li>
+                </ul>
+                <p><strong>💡 Savet:</strong> Uključi voće i povrće u svaki obrok – bilo u smoothie-ju, salati ili kao užinu.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>4. Antioksidansi – prirodni štit za telo</h3>
+                <p>
+                    Antioksidansi neutralizuju slobodne radikale – molekule koje mogu oštetiti ćelije i ubrzati starenje.
+                    Namirnice bogate antioksidansima, poput borovnice, maline i cvekle, pomažu:
+                </p>
+                <ul>
+                    <li>očuvanju vitalnosti</li>
+                    <li>jačanju imuniteta</li>
+                    <li>smanjenju oksidativnog stresa</li>
+                </ul>
+                <p><strong>💡 Savet:</strong> Uključi antioksidativno bogate namirnice u svaki dan, bilo u smoothie-ju ili voćnoj užini.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>5. Prirodna energija i vitalnost</h3>
+                <p>
+                    Prirodni šećeri iz voća i meda daju stabilnu energiju, bez naglih padova koncentracije. 
+                    Pažljivo odabrane kombinacije u smoothie-jima pomažu da se telo oseća osveženo i energično tokom dana.
+                </p>
+                <p><strong>💡 Savet:</strong> Za brzinu i energiju tokom dana, zameni slatkiše i gazirane napitke prirodnim smoothie-jem.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>6. Jačanje imuniteta</h3>
+                <p>
+                    Vitamin C, cink i drugi nutrijenti prirodno podržavaju imunološki sistem i otpornost organizma. 
+                    Redovan unos ovih sastojaka pomaže u očuvanju zdravlja i boljoj otpornosti tela na stres i spoljašnje faktore.
+                </p>
+                <p><strong>💡 Savet:</strong> U periodima stresa ili promene godišnjih doba, obavezno uključuj smoothie-je sa vitaminom C i cinkom.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>7. Fokus i koncentracija</h3>
+                <p>
+                    Prirodni sastojci poput limuna, đumbira i kurkume pomažu telu da održi energiju i koncentraciju. 
+                    U trenucima mentalnog napora, pravilno kombinovani sastojci mogu pomoći da se osećate budno, fokusirano i energično.
+                </p>
+                <p><strong>💡 Savet:</strong> Pre radnog zadatka ili učenja, popij smoothie Focus kako bi održao koncentraciju i jasnu misao.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>8. Opuštanje i balans organizma</h3>
+                <p>
+                    Sastojci poput pomorandže, cimeta i divlje nane prirodno pomažu telu da se opusti i smanji napetost. 
+                    Redovan unos ovakvih namirnica doprinosi osećaju smirenosti, osveženja i unutrašnjeg balansa.
+                </p>
+                <p><strong>💡 Savet:</strong> Uveče, ili u pauzi između obaveza, uživaj u smoothie-ju Relax i dopusti telu da se opusti.</p>
+            </div>
+
+            <div class="fact-item">
+                <h3>9. Zdrava ishrana nije komplikovana</h3>
+                <p>
+                    Zdrava ishrana ne znači odricanje ili komplikovane recepte. Ključ je u jednostavnosti, kvalitetu namirnica i 
+                    balansiranom unosu. Smoothie-ji i prirodni napici su savršen primer kako možete lako uključiti voće i povrće 
+                    u svakodnevni život, uživajući u ukusu i nutritivnim benefitima.
+                </p>
+                <p><strong>💡 Savet:</strong> Fokusiraj se na jednostavne i prirodne obroke – uživanje i zdravlje mogu ići ruku pod ruku.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="footer-logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O Nama</h3>
+                    <p>SAMO ZDRAVO donosi prirodne smoothie sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: <a href="mailto:infosamozdravo@gmail.com" style="color: inherit; text-decoration: none;">infosamozdravo@gmail.com</a></p>
+                    <p>Za sva pitanja i porudžbine kontaktirajte nas</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://www.instagram.com/samozdravo.rs/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+                            </svg>
+                            @samozdravo.rs
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAMO ZDRAVO. Sva prava zadržana. | Dizajn i razvoj: <a href="https://tamara014.github.io/Tamara-Portfolio/" target="_blank" rel="noopener noreferrer" style="color: var(--color-focus); text-decoration: none;">Tamara Jakovljevic</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

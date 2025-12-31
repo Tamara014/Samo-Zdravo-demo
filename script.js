@@ -105,6 +105,20 @@ document.addEventListener('DOMContentLoaded', () => {
         
         flavorObserver.observe(section);
     });
+    
+    // FAQ Accordion Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('h2');
+        
+        if (question) {
+            question.addEventListener('click', () => {
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        }
+    });
 });
 
 window.addEventListener('scroll', () => {

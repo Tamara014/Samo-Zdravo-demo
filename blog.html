@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - SAMO ZDRAVO</title>
+    <meta name="description" content="Pročitajte najnovije članke o zdravoj ishrani, smoothie receptima i zdravom načinu života">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Blog Hero */
+        .blog-hero {
+            background: linear-gradient(135deg, #4C1313, #91202F);
+            padding: calc(var(--header-height) + 4rem) 2rem 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .blog-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .blog-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+        
+        /* Blog Grid Section */
+        .blog-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        /* Blog Card */
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            box-shadow: 0 8px 30px rgba(76, 19, 19, 0.2);
+        }
+        
+        .blog-card.active {
+            box-shadow: 0 8px 30px rgba(76, 19, 19, 0.3);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .blog-header {
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .blog-card h2 {
+            font-size: 1.5rem;
+            color: #4C1313;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.4;
+            flex: 1;
+        }
+        
+        .blog-toggle {
+            color: #4C1313;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-left: 1rem;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .blog-card.active .blog-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .blog-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 2rem;
+            opacity: 0;
+        }
+        
+        .blog-card.active .blog-content {
+            max-height: 800px;
+            padding: 0 2rem 2rem 2rem;
+            opacity: 1;
+        }
+        
+        .blog-card p {
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* CTA Section */
+        .blog-cta {
+            background: linear-gradient(135deg, #f8f8f8, #e8e8e8);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+        
+        .blog-cta h2 {
+            font-size: 2.2rem;
+            color: #4C1313;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-cta p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #4C1313, #91202F);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 19, 19, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 19, 19, 0.4);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-hero p {
+                font-size: 1rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .blog-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="logo-image">
+                </a>
+            </div>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Početna</a>
+                <a href="about.html" class="nav-link">O Nama</a>
+                <a href="nutritivni-program.html" class="nav-link">Nutritivni Program</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-menu-link">Početna</a>
+            <a href="about.html" class="mobile-menu-link">O Nama</a>
+            <a href="nutritivni-program.html" class="mobile-menu-link">Nutritivni Program</a>
+            <a href="faq.html" class="mobile-menu-link">FAQ</a>
+            <a href="blog.html" class="mobile-menu-link">Blog</a>
+            <a href="contact.html" class="mobile-menu-link">Kontakt</a>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <h1>SAMO ZDRAVO Blog</h1>
+            <p>Dobrodošli na naš blog posvećen zdravom načinu života, prirodnoj ishrani i korisnim savetima za svakodnevno blagostanje.</p>
+        </section>
+
+        <section class="blog-section">
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/blog-imunitet.jpg" alt="Benefiti Smoothie Sokova za Imunitet">
+                    </div>
+                    <div class="blog-header">
+                        <h2>Benefiti Smoothie Sokova za Imunitet</h2>
+                        <span class="blog-toggle">+</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>
+                            Otkrijte kako redovna konzumacija smoothie sokova bogatih vitaminima C, cinkom i 
+                            antioksidansima može značajno poboljšati vaš imuni sistem. Naš Imuno smoothie kombinuje 
+                            maline, kupine i aroniju za maksimalan učinak.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/blog-energija.jpg" alt="Kako Povećati Energiju Prirodnim Putem">
+                    </div>
+                    <div class="blog-header">
+                        <h2>Kako Povećati Energiju Prirodnim Putem</h2>
+                        <span class="blog-toggle">+</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>
+                            Umor i nedostatak energije mogu biti rezultat loše ishrane. Saznajte kako prirodni 
+                            izvori energije poput borovnice, banane i guarane mogu transformisati vaš dan. 
+                            Focus smoothie je dizajniran upravo za to.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/blog-antioksidansi.jpg" alt="Antioksidansi: Zašto su Važni">
+                    </div>
+                    <div class="blog-header">
+                        <h2>Antioksidansi: Zašto su Važni?</h2>
+                        <span class="blog-toggle">+</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>
+                            Antioksidansi štite naše ćelije od oksidativnog stresa i mogu pomoći u prevenciji 
+                            mnogih bolesti. Borovnica, malina i aronija su jedni od najbogatijih izvora prirodnih 
+                            antioksidanasa. Saznajte više o njihovoj ulozi u očuvanju zdravlja.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/blog-relax.jpg" alt="Opuštanje i Smanjenje Stresa">
+                    </div>
+                    <div class="blog-header">
+                        <h2>Opuštanje i Smanjenje Stresa</h2>
+                        <span class="blog-toggle">+</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>
+                            Stres je jedan od najvećih neprijatelja modernog čoveka. Prirodni načini opuštanja, 
+                            uključujući hranu bogatu magneziјumom i biljne ekstrakte poput lavande, mogu značajno 
+                            pomoći. Relax smoothie vam može pomoći da pronađete unutrašnji mir.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/blog-vid.jpg" alt="Zdravlje Očiju i Kognitivne Funkcije">
+                    </div>
+                    <div class="blog-header">
+                        <h2>Zdravlje Očiju i Kognitivne Funkcije</h2>
+                        <span class="blog-toggle">+</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>
+                            Borovnica je poznata po svojim benefitima za zdravlje očiju i podršku mentalnim 
+                            funkcijama. Saznajte kako redovna konzumacija može poboljšati vid i koncentraciju. 
+                            Naš Borovnica smoothie pruža sve ove prednosti u jednoj flašici.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="assets/images/blog-med.jpg" alt="Prirodna Slatkoća: Med vs Šećer">
+                    </div>
+                    <div class="blog-header">
+                        <h2>Prirodna Slatkoća: Med vs Šećer</h2>
+                        <span class="blog-toggle">+</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>
+                            Zašto je med bolja alternativa rafinisanom šećeru? Otkrijte zdravstvene benefite 
+                            prirodne slatkoće i kako naš Malina Med smoothie kombinuje najbolje od oba sveta - 
+                            voćnu svežinu i prirodnu slatkoću meda.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="blog-cta">
+                <h2>Želite da Saznate Više?</h2>
+                <p>Pratite nas na društvenim mrežama za dnevne savete i novosti o zdravom životu.</p>
+                <a href="https://www.instagram.com/samozdravo.rs/" target="_blank" rel="noopener noreferrer" class="cta-button">Pratite Nas na Instagramu</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="footer-logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>O Nama</h3>
+                    <p>SAMO ZDRAVO donosi prirodne smoothie sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: <a href="mailto:infosamozdravo@gmail.com" style="color: inherit; text-decoration: none;">infosamozdravo@gmail.com</a></p>
+                    <p>Za sva pitanja i porudžbine kontaktirajte nas</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://www.instagram.com/samozdravo.rs/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+                            </svg>
+                            @samozdravo.rs
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAMO ZDRAVO. Sva prava zadržana. | Dizajn i razvoj: <a href="https://tamara014.github.io/Tamara-Portfolio/" target="_blank" rel="noopener noreferrer" style="color: var(--color-focus); text-decoration: none;">Tamara Jakovljevic</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        function toggleMobileMenu() {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+            
+            if (!isExpanded) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMobileMenu);
+
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Blog card accordion functionality
+        const blogCards = document.querySelectorAll('.blog-card');
+        
+        blogCards.forEach((card) => {
+            card.addEventListener('click', function() {
+                const wasActive = this.classList.contains('active');
+                this.classList.toggle('active');
+                console.log('Card clicked, active:', !wasActive);
+            });
+        });
+    </script>
+</body>
+</html>
