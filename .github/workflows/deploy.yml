@@ -2,7 +2,8 @@ name: Deploy to Web Hosting Srbija
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ main, master, gh-pages ]
+  workflow_dispatch:
 
 jobs:
   deploy:
