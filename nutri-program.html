@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri Program - SAMO ZDRAVO</title>
+    <meta name="description" content="SAMO ZDRAVO Nutri Program - Personalizovani program ishrane sa prirodnim smoothie sokovima">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .nutri-hero {
+            min-height: 90vh;
+            background-color: var(--color-bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--header-height) + 2rem) 2rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nutri-container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .nutri-content {
+            background: white;
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 650px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+        
+        .nutri-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--color-focus);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .nutri-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #5a5a5a;
+            margin-bottom: 1.2rem;
+        }
+        
+        .nutri-section {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: white;
+        }
+        
+        .nutri-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .program-card {
+            background: linear-gradient(135deg, #f9f9f9, #ffffff);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .program-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .program-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #5a5a5a;
+            margin-bottom: 1rem;
+        }
+        
+        .program-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        
+        .program-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #5a5a5a;
+        }
+        
+        .program-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-focus);
+            font-weight: bold;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #000000;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .nutri-content {
+                padding: 2rem;
+            }
+            
+            .nutri-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nutri-section h2 {
+                font-size: 2rem;
+            }
+            
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="logo-image">
+                </a>
+            </div>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="index.html" class="nav-link">Početna</a>
+                <a href="about.html" class="nav-link">O Nama</a>
+                <a href="nutri-program.html" class="nav-link active">Nutri Program</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="blog.html" class="nav-link">Nutri Facts</a>
+                <a href="contact.html" class="nav-link">Kontakt</a>
+            </nav>
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-menu-link">Početna</a>
+            <a href="about.html" class="mobile-menu-link">O Nama</a>
+            <a href="nutri-program.html" class="mobile-menu-link">Nutri Program</a>
+            <a href="faq.html" class="mobile-menu-link">FAQ</a>
+            <a href="blog.html" class="mobile-menu-link">Nutri Facts</a>
+            <a href="contact.html" class="mobile-menu-link">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="nutri-hero">
+            <div class="nutri-container">
+                <div class="nutri-content">
+                    <h1>Nutri program – lični plan ishrane</h1>
+                    <p style="font-size: 1.3rem; font-weight: 600; color: var(--color-primary);">
+                        Plan ishrane koji se prilagođava vama, a ne vi njemu
+                    </p>
+                    <p>
+                        Ne postoji univerzalna ishrana koja odgovara svima.
+                    </p>
+                    <p>
+                        Zato je Nutri program Samo Zdravo potpuno personalizovan — bez gladovanja, bez rigoroznih zabrana i bez komplikovanih recepata.
+                    </p>
+                    <p>
+                        Cilj je jednostavan: plan ishrane koji možete da pratite dugoročno, uz realne obroke, podršku i jasna uputstva prilagođena vašem načinu života, zdravstvenom stanju i ciljevima.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nutri-section">
+            <h2>Kako izgleda Nutri program?</h2>
+            <div class="program-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+                <div class="program-card">
+                    <h3>1. Konsultacija</h3>
+                    <p>Detaljan razgovor o vašim navikama, dnevnom ritmu, zdravstvenom stanju i ciljevima koje želite da postignete.</p>
+                </div>
+
+                <div class="program-card">
+                    <h3>2. Izrada ličnog plana ishrane</h3>
+                    <p>Kreiram praktičan, održiv i jasan plan ishrane koji se uklapa u vaš svakodnevni život — bez stresa i odricanja.</p>
+                </div>
+
+                <div class="program-card">
+                    <h3>3. Praćenje i prilagođavanje</h3>
+                    <p>Tokom programa pratimo rezultate i po potrebi prilagođavamo plan kako bi napredak bio stabilan i dugoročan.</p>
+                </div>
+
+                <div class="program-card">
+                    <h3>4. Kontinuirana podrška</h3>
+                    <p>Tokom celog procesa imate moju stručnu podršku, savete i dodatne preporuke kada god vam zatrebaju.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nutri-section" style="background: #f9f9f9;">
+            <h2>Šta dobijate uz Nutri program?</h2>
+            <div class="program-card" style="max-width: 800px; margin: 0 auto;">
+                <ul>
+                    <li>Personalizovan plan ishrane za svakodnevni život</li>
+                    <li>Jasne smernice za kombinovanje obroka</li>
+                    <li>Listu zdravih, dostupnih i praktičnih namirnica</li>
+                    <li>Edukaciju o pravilnoj ishrani i navikama</li>
+                    <li>Podršku koja ne prestaje posle prvog plana</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="nutri-section">
+            <h2>Za koga je Nutri program namenjen?</h2>
+            <div class="program-card" style="max-width: 800px; margin: 0 auto;">
+                <ul>
+                    <li>Osobama koje žele da poboljšaju zdravlje</li>
+                    <li>Onima koji žele regulaciju telesne mase</li>
+                    <li>Ljudi sa ubrzanim ili neredovnim ritmom života</li>
+                    <li>Svima koji žele realan i održiv pristup ishrani</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Napravite prvi korak ka zdravijem načinu života</h2>
+            <p>Zakažite svoj Nutri program već danas!</p>
+            <a href="contact.html" class="cta-button">Kontaktirajte nas</a>
+        </section>
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo-samo-zdravo.svg" alt="SAMO ZDRAVO logo" class="footer-logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-section" id="about">
+                    <h3>O Nama</h3>
+                    <p>SAMO ZDRAVO donosi prirodne sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: <a href="mailto:info@samozdravo.rs" style="color: inherit; text-decoration: none;">info@samozdravo.rs</a></p>
+                    <p>Za sva pitanja i porudžbine kontaktirajte nas</p>
+                    <p style="margin-top: 1rem;">
+                        <a href="https://www.instagram.com/samozdravo.rs/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
+                            </svg>
+                            @samozdravo.rs
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SAMO ZDRAVO. Sva prava zadržana. | Dizajn i razvoj: <a href="https://tamara014.github.io/Tamara-Portfolio/" target="_blank" rel="noopener noreferrer" style="color: var(--color-focus); text-decoration: none;">Tamara Jakovljevic</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
