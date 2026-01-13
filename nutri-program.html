@@ -79,6 +79,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
         
         .program-card:hover {
@@ -91,6 +92,25 @@
             font-weight: 700;
             color: var(--color-primary);
             margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-toggle {
+            display: none;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .program-card.active .card-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .card-content {
+            display: block;
         }
         
         .program-card p {
@@ -171,7 +191,20 @@
             }
             
             .program-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+            }
+            
+            .card-toggle {
+                display: none !important;
+            }
+            
+            .card-content {
+                display: block !important;
+                margin-top: 1rem;
+            }
+            
+            .program-card {
+                cursor: default;
             }
         }
     </style>
@@ -232,50 +265,64 @@
         <section class="nutri-section">
             <h2>Kako izgleda Nutri program?</h2>
             <div class="program-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
-                <div class="program-card">
-                    <h3>1. Konsultacija</h3>
-                    <p>Detaljan razgovor o vašim navikama, dnevnom ritmu, zdravstvenom stanju i ciljevima koje želite da postignete.</p>
+                <div class="program-card" onclick="this.classList.toggle('active')">
+                    <h3>1. Konsultacija<span class="card-toggle">+</span></h3>
+                    <div class="card-content">
+                        <p>Detaljan razgovor o vašim navikama, dnevnom ritmu, zdravstvenom stanju i ciljevima koje želite da postignete.</p>
+                    </div>
                 </div>
 
-                <div class="program-card">
-                    <h3>2. Izrada ličnog plana ishrane</h3>
-                    <p>Kreiram praktičan, održiv i jasan plan ishrane koji se uklapa u vaš svakodnevni život — bez stresa i odricanja.</p>
+                <div class="program-card" onclick="this.classList.toggle('active')">
+                    <h3>2. Izrada ličnog plana ishrane<span class="card-toggle">+</span></h3>
+                    <div class="card-content">
+                        <p>Kreiram praktičan, održiv i jasan plan ishrane koji se uklapa u vaš svakodnevni život — bez stresa i odricanja.</p>
+                    </div>
                 </div>
 
-                <div class="program-card">
-                    <h3>3. Praćenje i prilagođavanje</h3>
-                    <p>Tokom programa pratimo rezultate i po potrebi prilagođavamo plan kako bi napredak bio stabilan i dugoročan.</p>
+                <div class="program-card" onclick="this.classList.toggle('active')">
+                    <h3>3. Praćenje i prilagođavanje<span class="card-toggle">+</span></h3>
+                    <div class="card-content">
+                        <p>Tokom programa pratimo rezultate i po potrebi prilagođavamo plan kako bi napredak bio stabilan i dugoročan.</p>
+                    </div>
                 </div>
 
-                <div class="program-card">
-                    <h3>4. Kontinuirana podrška</h3>
-                    <p>Tokom celog procesa imate moju stručnu podršku, savete i dodatne preporuke kada god vam zatrebaju.</p>
+                <div class="program-card" onclick="this.classList.toggle('active')">
+                    <h3>4. Kontinuirana podrška<span class="card-toggle">+</span></h3>
+                    <div class="card-content">
+                        <p>Tokom celog procesa imate moju stručnu podršku, savete i dodatne preporuke kada god vam zatrebaju.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="nutri-section" style="background: #f9f9f9;">
             <h2>Šta dobijate uz Nutri program?</h2>
-            <div class="program-card" style="max-width: 800px; margin: 0 auto;">
-                <ul>
-                    <li>Personalizovan plan ishrane za svakodnevni život</li>
-                    <li>Jasne smernice za kombinovanje obroka</li>
-                    <li>Listu zdravih, dostupnih i praktičnih namirnica</li>
-                    <li>Edukaciju o pravilnoj ishrani i navikama</li>
-                    <li>Podršku koja ne prestaje posle prvog plana</li>
-                </ul>
+            <div class="program-card" style="max-width: 800px; margin: 0 auto;" onclick="this.classList.toggle('active')">
+                <h3>Benefiti programa<span class="card-toggle">+</span></h3>
+                <div class="card-content">
+                    <ul>
+                        <li>Personalizovan plan ishrane za svakodnevni život</li>
+                        <li>Jasne smernice za kombinovanje obroka</li>
+                        <li>Listu zdravih, dostupnih i praktičnih namirnica</li>
+                        <li>Edukaciju o pravilnoj ishrani i navikama</li>
+                        <li>Podršku koja ne prestaje posle prvog plana</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section class="nutri-section">
             <h2>Za koga je Nutri program namenjen?</h2>
-            <div class="program-card" style="max-width: 800px; margin: 0 auto;">
-                <ul>
-                    <li>Osobama koje žele da poboljšaju zdravlje</li>
-                    <li>Onima koji žele regulaciju telesne mase</li>
-                    <li>Ljudi sa ubrzanim ili neredovnim ritmom života</li>
-                    <li>Svima koji žele realan i održiv pristup ishrani</li>
-                </ul>
+            <div class="program-card" style="max-width: 800px; margin: 0 auto;" onclick="this.classList.toggle('active')">
+                <h3>Idealan za<span class="card-toggle">+</span></h3>
+                <div class="card-content">
+                    <ul>
+                        <li>Osobama koje žele da poboljšaju zdravlje</li>
+                        <li>Onima koji žele regulaciju telesne mase</li>
+                        <li>Ljudi sa ubrzanim ili neredovnim ritmom života</li>
+                        <li>Svima koji žele realan i održiv pristup ishrani</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -294,7 +341,7 @@
             <div class="footer-content">
                 <div class="footer-section" id="about">
                     <h3>O Nama</h3>
-                    <p>SAMO ZDRAVO donosi prirodne sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                    <p>SAMO ZDRAVO donosi prirodne sokove vrhunskog kvaliteta, bez veštačkih aditiva i vode.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Kontakt</h3>

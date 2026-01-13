@@ -1,4 +1,3 @@
-/* Contact Split Layout Styles */
 
 .contact-split-section {
     min-height: calc(100vh - var(--header-height));
@@ -185,7 +184,7 @@
     transform: translateY(0);
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 1024px) {
     .contact-split-container {
         flex-direction: column;

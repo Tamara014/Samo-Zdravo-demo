@@ -10,7 +10,7 @@
         
         .about-hero {
             min-height: 90vh;
-            background: linear-gradient(135deg, #adadad 0%, #c5c5c5 50%, #d0d0d0 100%);
+            background-color: var(--color-bg-light);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -29,16 +29,17 @@
         }
         
         .about-content {
-            background: white;
+            background: transparent;
             padding: 3.5rem;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: none;
             max-width: 550px;
             z-index: 10;
+            margin-left: 15%;
         }
         
         .about-content h1 {
-            font-size: 3.5rem;
+            font-size: 5rem;
             font-weight: 700;
             color: #4C1313;
             margin-bottom: 1.5rem;
@@ -74,10 +75,10 @@
         .about-image {
             position: absolute;
             bottom: 45px;
-            right: 0;
+            right: 5%;
             z-index: 5;
-            width: 50%;
-            max-width: 850px;
+            width: 60%;
+            max-width: 1000px;
         }
         
         .about-image img {
@@ -230,12 +231,6 @@
             <div class="about-container">
                 <div class="about-content">
                     <h1>O NAMA</h1>
-                    <p>
-                        Brend Samo Zdravo nastao je iz stvarne potrebe da ljudima ponudimo jednostavan i prirodan način da podrže svoje zdravlje, čak i u ubrzanom životnom tempu.
-                    </p>
-                    <p>
-                        Ideja se rodila kroz rad sa klijentima koji su želeli brzo, praktično i lako rešenje za zdravu ishranu, ali sa stvarnim zdravstvenim efektom.
-                    </p>
                     <a href="#more-info" class="learn-more-btn">SAZNAJ VIŠE</a>
                 </div>
                 
@@ -285,7 +280,7 @@
                         Zovem se <strong>Mladen Dakić, spec. struk. nutricionista–dijetetičar</strong>, sa višegodišnjim iskustvom u radu u zdravstvenim, rehabilitacionim i sportskim sistemima i osnivač sam brenda Samo Zdravo.
                     </p>
                     <p>
-                        Zaposlen sam u Specijalnoj bolnici za rehabilitaciju „Gornja Trepča", a angažovan kao stručni konsultant za ishranu u Poliklinici Park (Čačak) i Poliklinici Prima Medika (Gornji Milanovac), kao i kao stručni saradnik u PU „Sunce" u Gornjem Milanovcu.
+                        Zaposlen sam u Specijalnoj bolnici za rehabilitaciju „Gornja Trepča", a angažovan kao stručni konsultant za ishranu u Poliklinici Park (Čačak) i Poliklinici Prima Medika (Gornji Milanovac), i kao stručni saradnik u PU „Sunce" u Gornjem Milanovcu.
                     </p>
                     <p>
                         Svoje stručno iskustvo sticao sam kroz praksu u Domu zdravlja Zemun, KBC Zemun, kao i u sportskom sistemu FK Crvena zvezda. Više od 25 godina sam u sportu, a preko 10 godina profesionalno radim u oblasti ishrane, što mi omogućava da znanje prilagodim realnim životnim i zdravstvenim potrebama ljudi sa kojima radim.
@@ -326,6 +321,8 @@
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <footer class="footer">
@@ -336,7 +333,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>O Nama</h3>
-                    <p>SAMO ZDRAVO donosi prirodne smoothie sokove vrhunskog kvaliteta, bez veštačkih aditiva.</p>
+                    <p>SAMO ZDRAVO donosi prirodne sokove vrhunskog kvaliteta, bez veštačkih aditiva i vode.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Kontakt</h3>
