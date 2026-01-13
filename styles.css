@@ -353,6 +353,7 @@ video {
     font-size: var(--font-size-h2);
     font-weight: 700;
     margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-md);
     color: var(--color-bg-white);
     text-transform: uppercase;
     letter-spacing: 1px;
