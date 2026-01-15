@@ -15,11 +15,11 @@
     <style>
         .nutri-hero {
             min-height: 90vh;
-            background-color: var(--color-bg-light);
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/nutri program/hero.jpeg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: calc(var(--header-height) + 2rem) 2rem 2rem 2rem;
+            padding: var(--header-height) 2rem 2.5rem 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -34,19 +34,19 @@
         }
         
         .nutri-content {
-            background: white;
+            background: transparent;
             padding: 3.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-radius: 0;
+            box-shadow: none;
             max-width: 650px;
-            margin: 0 auto;
+            margin: -2rem 0 0 0;
             z-index: 10;
         }
         
         .nutri-content h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: var(--color-focus);
+            color: white;
             margin-bottom: 1.5rem;
             line-height: 1.1;
         }
@@ -54,7 +54,8 @@
         .nutri-content p {
             font-size: 1.05rem;
             line-height: 1.8;
-            color: #5a5a5a;
+            color: white;
+            font-weight: 700;
             margin-bottom: 1.2rem;
         }
         
@@ -69,6 +70,88 @@
             color: var(--color-primary);
             text-align: center;
             margin-bottom: 3rem;
+        }
+        
+        .tabs-container {
+            display: flex;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: flex-start;
+        }
+        
+        .tabs-list {
+            flex: 0 0 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .tab-button {
+            background: #f9f9f9;
+            border: none;
+            padding: 1.5rem 1.25rem;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .tab-button:hover {
+            background: #f0f0f0;
+            transform: translateX(5px);
+        }
+        
+        .tab-button.active {
+            background: white;
+            border-left-color: var(--color-focus);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content-area {
+            flex: 1;
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 2rem;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-content img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 auto 1.25rem auto;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .tab-content h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+        
+        .tab-content p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #5a5a5a;
+            text-align: center;
         }
         
         .program-grid {
@@ -251,18 +334,9 @@
         <section class="nutri-hero">
             <div class="nutri-container">
                 <div class="nutri-content">
-                    <h1>Nutri program – lični plan ishrane</h1>
-                    <p style="font-size: 1.3rem; font-weight: 600; color: var(--color-primary);">
+                    <h1>Nutri program </h1>
+                    <p style="font-size: 1.3rem; font-weight: 600;">
                         Plan ishrane koji se prilagođava vama, a ne vi njemu
-                    </p>
-                    <p>
-                        Ne postoji univerzalna ishrana koja odgovara svima.
-                    </p>
-                    <p>
-                        Zato je Nutri program Samo Zdravo potpuno personalizovan — bez gladovanja, bez rigoroznih zabrana i bez komplikovanih recepata.
-                    </p>
-                    <p>
-                        Cilj je jednostavan: plan ishrane koji možete da pratite dugoročno, uz realne obroke, podršku i jasna uputstva prilagođena vašem načinu života, zdravstvenom stanju i ciljevima.
                     </p>
                 </div>
             </div>
@@ -270,64 +344,97 @@
 
         <section class="nutri-section">
             <h2>Kako izgleda Nutri program?</h2>
-            <div class="program-grid" style="grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
-                <div class="program-card" onclick="this.classList.toggle('active')">
-                    <h3>1. Konsultacija<span class="card-toggle">+</span></h3>
-                    <div class="card-content">
+            <div class="tabs-container">
+                <div class="tabs-list">
+                    <button class="tab-button active" onclick="openTab(event, 'tab1')">1. Konsultacija</button>
+                    <button class="tab-button" onclick="openTab(event, 'tab2')">2. Izrada ličnog plana ishrane</button>
+                    <button class="tab-button" onclick="openTab(event, 'tab3')">3. Praćenje i prilagođavanje</button>
+                    <button class="tab-button" onclick="openTab(event, 'tab4')">4. Kontinuirana podrška</button>
+                </div>
+                
+                <div class="tab-content-area">
+                    <div id="tab1" class="tab-content active">
+                        <img src="assets/nutri program/consulting.jpeg" alt="Konsultacija">
+                        <h3>Konsultacija</h3>
                         <p>Detaljan razgovor o vašim navikama, dnevnom ritmu, zdravstvenom stanju i ciljevima koje želite da postignete.</p>
                     </div>
-                </div>
-
-                <div class="program-card" onclick="this.classList.toggle('active')">
-                    <h3>2. Izrada ličnog plana ishrane<span class="card-toggle">+</span></h3>
-                    <div class="card-content">
+                    
+                    <div id="tab2" class="tab-content">
+                        <img src="assets/nutri program/planing.jpeg" alt="Izrada plana">
+                        <h3>Izrada ličnog plana ishrane</h3>
                         <p>Kreiram praktičan, održiv i jasan plan ishrane koji se uklapa u vaš svakodnevni život — bez stresa i odricanja.</p>
                     </div>
-                </div>
-
-                <div class="program-card" onclick="this.classList.toggle('active')">
-                    <h3>3. Praćenje i prilagođavanje<span class="card-toggle">+</span></h3>
-                    <div class="card-content">
+                    
+                    <div id="tab3" class="tab-content">
+                        <img src="assets/nutri program/tracking.jpeg" alt="Praćenje">
+                        <h3>Praćenje i prilagođavanje</h3>
                         <p>Tokom programa pratimo rezultate i po potrebi prilagođavamo plan kako bi napredak bio stabilan i dugoročan.</p>
                     </div>
-                </div>
-
-                <div class="program-card" onclick="this.classList.toggle('active')">
-                    <h3>4. Kontinuirana podrška<span class="card-toggle">+</span></h3>
-                    <div class="card-content">
+                    
+                    <div id="tab4" class="tab-content">
+                        <img src="assets/nutri program/support.jpeg" alt="Podrška">
+                        <h3>Kontinuirana podrška</h3>
                         <p>Tokom celog procesa imate moju stručnu podršku, savete i dodatne preporuke kada god vam zatrebaju.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="nutri-section" style="background: #f9f9f9;">
-            <h2>Šta dobijate uz Nutri program?</h2>
-            <div class="program-card" style="max-width: 800px; margin: 0 auto;" onclick="this.classList.toggle('active')">
-                <h3>Benefiti programa<span class="card-toggle">+</span></h3>
-                <div class="card-content">
-                    <ul>
-                        <li>Personalizovan plan ishrane za svakodnevni život</li>
-                        <li>Jasne smernice za kombinovanje obroka</li>
-                        <li>Listu zdravih, dostupnih i praktičnih namirnica</li>
-                        <li>Edukaciju o pravilnoj ishrani i navikama</li>
-                        <li>Podršku koja ne prestaje posle prvog plana</li>
-                    </ul>
+        <section class="nutri-section" style="background: #f9f9f9; padding: 4rem 2rem;">
+            <h2 style="margin-bottom: 3rem;">Benefiti programa</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-left: 0; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                    <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">01</span>
+                    <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Personalizovan plan ishrane za svakodnevni život</span>
+                </div>
+                
+                <div style="margin-left: 60px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                    <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">02</span>
+                    <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Jasne smernice za kombinovanje obroka</span>
+                </div>
+                
+                <div style="margin-left: 120px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                    <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">03</span>
+                    <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Listu zdravih, dostupnih i praktičnih namirnica</span>
+                </div>
+                
+                <div style="margin-left: 180px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                    <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">04</span>
+                    <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Edukaciju o pravilnoj ishrani i navikama</span>
+                </div>
+                
+                <div style="margin-left: 240px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                    <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">05</span>
+                    <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Podršku koja ne prestaje posle prvog plana</span>
                 </div>
             </div>
         </section>
 
         <section class="nutri-section">
             <h2>Za koga je Nutri program namenjen?</h2>
-            <div class="program-card" style="max-width: 800px; margin: 0 auto;" onclick="this.classList.toggle('active')">
-                <h3>Idealan za<span class="card-toggle">+</span></h3>
-                <div class="card-content">
-                    <ul>
-                        <li>Osobama koje žele da poboljšaju zdravlje</li>
-                        <li>Onima koji žele regulaciju telesne mase</li>
-                        <li>Ljudi sa ubrzanim ili neredovnim ritmom života</li>
-                        <li>Svima koji žele realan i održiv pristup ishrani</li>
-                    </ul>
+            <div class="program-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                <div class="program-card" onclick="this.classList.toggle('active')">
+                    <h3>Idealan za<span class="card-toggle">+</span></h3>
+                    <div class="card-content">
+                        <ul>
+                            <li>Osobama koje žele da poboljšaju zdravlje</li>
+                            <li>Onima koji žele regulaciju telesne mase</li>
+                            <li>Ljudi sa ubrzanim ili neredovnim ritmom života</li>
+                            <li>Svima koji žele realan i održiv pristup ishrani</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="program-card" onclick="this.classList.toggle('active')" style="border-left-color: #d32f2f;">
+                    <h3>Nije idealan za<span class="card-toggle">+</span></h3>
+                    <div class="card-content">
+                        <ul>
+                            <li>Osobama koje traže brze i nerealne rezultate</li>
+                            <li>Onima koji ne žele da promene svoje navike</li>
+                            <li>Ljudi koji traže rigorozne dijete sa ekstremnim ograničenjima</li>
+                            <li>Svima koji očekuju magično rešenje bez truda</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -370,5 +477,24 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        function openTab(event, tabId) {
+            // Ukloni active klasu sa svih tab sadržaja
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Ukloni active klasu sa svih tab dugmadi
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Dodaj active klasu na kliknuti tab
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
