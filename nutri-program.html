@@ -154,6 +154,11 @@
             text-align: center;
         }
         
+        /* Hide mobile accordion content on desktop */
+        .tab-content-mobile {
+            display: none;
+        }
+        
         .program-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -284,16 +289,115 @@
             }
             
             .card-toggle {
-                display: none !important;
+                display: inline !important;
             }
             
             .card-content {
-                display: block !important;
+                display: none !important;
                 margin-top: 1rem;
             }
             
+            .program-card.active .card-content {
+                display: block !important;
+            }
+            
             .program-card {
-                cursor: default;
+                cursor: pointer;
+            }
+            
+            /* Accordion stil za tab sistem na mobilnom */
+            .tabs-container {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .tabs-list {
+                flex: 1;
+                width: 100%;
+                order: 0;
+            }
+            
+            .tab-button {
+                width: 100%;
+                margin-bottom: 0;
+                border-radius: 0;
+                border-left: none;
+                border-bottom: 1px solid #e0e0e0;
+                padding: 1.25rem 1rem;
+                position: relative;
+            }
+            
+            .tab-button::after {
+                content: '+';
+                position: absolute;
+                right: 1rem;
+                font-size: 1.5rem;
+                transition: transform 0.3s ease;
+            }
+            
+            .tab-button.active::after {
+                content: '−';
+            }
+            
+            .tab-button:hover {
+                transform: translateX(0);
+            }
+            
+            /* Hide desktop tab content on mobile */
+            .tab-content-area {
+                display: none !important;
+            }
+            
+            /* Show mobile accordion content */
+            .tab-content-mobile {
+                display: none;
+                padding: 1.5rem;
+                background: #f9f9f9;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .tab-content-mobile.active {
+                display: block;
+            }
+            
+            .tab-content-mobile img {
+                width: 100%;
+                max-width: 250px;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+            }
+            
+            .tab-content-mobile h3 {
+                color: #2c5530;
+                margin-bottom: 0.75rem;
+            }
+            
+            .tab-content img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .tab-content h3 {
+                text-align: left;
+            }
+            
+            .tab-content p {
+                text-align: left;
+            }
+            
+            /* Responzivnost za benefite sekciju */
+            .benefits-card {
+                margin-left: 0 !important;
+                width: 100% !important;
+                max-width: 100%;
+            }
+            
+            /* Responzivnost za program grid */
+            .program-grid[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>
@@ -347,9 +451,32 @@
             <div class="tabs-container">
                 <div class="tabs-list">
                     <button class="tab-button active" onclick="openTab(event, 'tab1')">1. Konsultacija</button>
+                    <div id="tab1-mobile" class="tab-content-mobile active">
+                        <img src="assets/nutri program/consulting.jpeg" alt="Konsultacija">
+                        <h3>Konsultacija</h3>
+                        <p>Detaljan razgovor o vašim navikama, dnevnom ritmu, zdravstvenom stanju i ciljevima koje želite da postignete.</p>
+                    </div>
+                    
                     <button class="tab-button" onclick="openTab(event, 'tab2')">2. Izrada ličnog plana ishrane</button>
+                    <div id="tab2-mobile" class="tab-content-mobile">
+                        <img src="assets/nutri program/planing.jpeg" alt="Izrada plana">
+                        <h3>Izrada ličnog plana ishrane</h3>
+                        <p>Kreiram praktičan, održiv i jasan plan ishrane koji se uklapa u vaš svakodnevni život — bez stresa i odricanja.</p>
+                    </div>
+                    
                     <button class="tab-button" onclick="openTab(event, 'tab3')">3. Praćenje i prilagođavanje</button>
+                    <div id="tab3-mobile" class="tab-content-mobile">
+                        <img src="assets/nutri program/tracking.jpeg" alt="Praćenje">
+                        <h3>Praćenje i prilagođavanje</h3>
+                        <p>Tokom programa pratimo rezultate i po potrebi prilagođavamo plan kako bi napredak bio stabilan i dugoročan.</p>
+                    </div>
+                    
                     <button class="tab-button" onclick="openTab(event, 'tab4')">4. Kontinuirana podrška</button>
+                    <div id="tab4-mobile" class="tab-content-mobile">
+                        <img src="assets/nutri program/support.jpeg" alt="Podrška">
+                        <h3>Kontinuirana podrška</h3>
+                        <p>Tokom celog procesa imate moju stručnu podršku, savete i dodatne preporuke kada god vam zatrebaju.</p>
+                    </div>
                 </div>
                 
                 <div class="tab-content-area">
@@ -383,27 +510,27 @@
         <section class="nutri-section" style="background: #f9f9f9; padding: 4rem 2rem;">
             <h2 style="margin-bottom: 3rem;">Benefiti programa</h2>
             <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-left: 0; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                <div class="benefits-card" style="margin-left: 0; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
                     <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">01</span>
                     <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Personalizovan plan ishrane za svakodnevni život</span>
                 </div>
                 
-                <div style="margin-left: 60px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                <div class="benefits-card" style="margin-left: 60px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
                     <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">02</span>
                     <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Jasne smernice za kombinovanje obroka</span>
                 </div>
                 
-                <div style="margin-left: 120px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                <div class="benefits-card" style="margin-left: 120px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
                     <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">03</span>
                     <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Listu zdravih, dostupnih i praktičnih namirnica</span>
                 </div>
                 
-                <div style="margin-left: 180px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                <div class="benefits-card" style="margin-left: 180px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); margin-bottom: 1.5rem; border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
                     <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">04</span>
                     <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Edukaciju o pravilnoj ishrani i navikama</span>
                 </div>
                 
-                <div style="margin-left: 240px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
+                <div class="benefits-card" style="margin-left: 240px; width: 520px; padding: 1.5rem 2rem; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); border-left: 4px solid var(--color-focus); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateX(10px)'; this.style.boxShadow='0 6px 20px rgba(0, 0, 0, 0.12)'" onmouseout="this.style.transform='translateX(0)'; this.style.boxShadow='0 4px 15px rgba(0, 0, 0, 0.08)'">
                     <span style="color: var(--color-focus); font-weight: bold; font-size: 1.5rem; margin-right: 1rem;">05</span>
                     <span style="font-size: 1.1rem; color: #333; font-weight: 500;">Podršku koja ne prestaje posle prvog plana</span>
                 </div>
@@ -479,21 +606,45 @@
     <script src="script.js"></script>
     <script>
         function openTab(event, tabId) {
-            // Ukloni active klasu sa svih tab sadržaja
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-            });
+            const isMobile = window.innerWidth <= 768;
+            const clickedButton = event.currentTarget;
+            const wasActive = clickedButton.classList.contains('active');
             
-            // Ukloni active klasu sa svih tab dugmadi
-            const tabButtons = document.querySelectorAll('.tab-button');
-            tabButtons.forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            // Dodaj active klasu na kliknuti tab
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
+            if (isMobile) {
+                // Accordion stil na mobilnom - koristi mobilni sadržaj
+                const mobileContent = document.getElementById(tabId + '-mobile');
+                
+                if (wasActive) {
+                    // Zatvori ako je već otvoren
+                    clickedButton.classList.remove('active');
+                    mobileContent.classList.remove('active');
+                } else {
+                    // Zatvori sve ostale
+                    const tabButtons = document.querySelectorAll('.tab-button');
+                    const mobileContents = document.querySelectorAll('.tab-content-mobile');
+                    
+                    tabButtons.forEach(button => button.classList.remove('active'));
+                    mobileContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Otvori kliknuti
+                    clickedButton.classList.add('active');
+                    mobileContent.classList.add('active');
+                }
+            } else {
+                // Desktop tab sistem
+                const tabContents = document.querySelectorAll('.tab-content');
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                const tabButtons = document.querySelectorAll('.tab-button');
+                tabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                document.getElementById(tabId).classList.add('active');
+                clickedButton.classList.add('active');
+            }
         }
     </script>
 </body>
